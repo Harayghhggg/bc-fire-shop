@@ -19,7 +19,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : i1Suhaib ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`fmFire Shop | f!bc`,"http://twitch.tv/S-F")
+client.user.setGame(`Fire Shop | f!bc`,"http://twitch.tv/S-F")
 client.user.setStatus("dnd")
 });
 
