@@ -80,7 +80,22 @@ msg.delete();
 
 
 
-
+client.on("message", message => {
+          if (message.content === `f!help`) {
+                  const embed = new Discord.RichEmbed()
+                        .setColor("#000000")
+                        .setDescription(`*** 
+f!bc   
+** `)
+                  
+                  message.channel.sendEmbed(embed)
+                   
+          }
+});
+ 
+ 
+ 
+ 
 
 
 
