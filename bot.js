@@ -89,6 +89,8 @@ f!bc | لارسال برودكاست
 f!obc | لارسال برودكاست بمنشن 
 f!2bc |لارسال برودكاست بعداد
 ** `)
+   
+             .setColor('RANDOM')
                   
                   message.channel.sendEmbed(embed)
                    
