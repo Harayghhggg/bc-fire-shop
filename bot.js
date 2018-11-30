@@ -138,8 +138,9 @@ client.on('message',async message => {
       });
   }
 });
+
+var prefix = "f!" 
 client.on('message', message => {
-      var prefix = "f!";
          if(!message.channel.guild) return;
       if(message.content.startsWith(prefix + 'oobc')) {
             if(!message.channel.guild) return message.channel.send('**   **').then(m => m.delete(5000));
@@ -147,9 +148,9 @@ client.on('message', message => {
             let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
             let BcList = new Discord.RichEmbed()
             .setThumbnail(message.author.avatarURL)
-            .setAuthor(` الرسال ${args}`)
-            .setDescription(`   ??\n   \n   قبل  `)
-            if (!args) return message.reply('**       البرو**');message.channel.send(BcList).then(msg => {
+            .setAuthor(`  ${args}`)
+            .setDescription(`   ??\n   \n     `)
+            if (!args) return message.reply('**       **');message.channel.send(BcList).then(msg => {
                   msg.react('??')
                   .then(() => msg.react(''))
                   .then(() =>msg.react('??'))
@@ -161,7 +162,7 @@ client.on('message', message => {
                   let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
                    
                   EmbedBc.on("collect", r => {
-                        message.channel.send(`:ballot_box_with_check:  ارس  `).then(m => m.delete(5000));
+                        message.channel.send(`:ballot_box_with_check:    `).then(m => m.delete(5000));
                         message.guild.members.forEach(m => {
                               var bc = new
                               Discord.RichEmbed()
@@ -185,5 +186,4 @@ client.on('message', message => {
             })
       }
 });
-
 client.login(process.env.BOT_TOKEN);
