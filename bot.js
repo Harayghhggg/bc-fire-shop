@@ -139,51 +139,5 @@ client.on('message',async message => {
   }
 });
 
-var prefix = "f!" 
-client.on('message', message => {
-         if(!message.channel.guild) return;
-      if(message.content.startsWith(prefix + 'oobc')) {
-            if(!message.channel.guild) return message.channel.send('**   **').then(m => m.delete(5000));
-            if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send(':no_entry: | You dont have **ADMINISTRATOR** Permission!' );
-            let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-            let BcList = new Discord.RichEmbed()
-            .setThumbnail(message.author.avatarURL)
-            .setAuthor(`  ${args}`)
-            .setDescription(`   ??\n   \n     `)
-            if (!args) return message.reply('**       **');message.channel.send(BcList).then(msg => {
-                  msg.react('??')
-                  .then(() => msg.react(''))
-                  .then(() =>msg.react('??'))
-                   
-                  let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '??' && user.id === message.author.id;
-                  let NormalBcFilter = (reaction, user) => reaction.emoji.name === '' && user.id === message.author.id;
-                   
-                  let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
-                  let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
-                   
-                  EmbedBc.on("collect", r => {
-                        message.channel.send(`:ballot_box_with_check:    `).then(m => m.delete(5000));
-                        message.guild.members.forEach(m => {
-                              var bc = new
-                              Discord.RichEmbed()
-                              .setColor('RANDOM')
-                                .setTitle('`-Broadcast-`')
-                              .setAuthor(`Server : ${message.guild.name}`)
-                              .setFooter(`Sender : ${message.author.username}`)
-                              .setDescription(`Message : ${args}`)
-                              .setThumbnail(message.author.avatarURL)
-                              m.send({ embed: bc })
-                              msg.delete();
-                        })
-                  })
-                  NormalBc.on("collect", r => {
-                          message.channel.send(`:ballot_box_with_check:    `).then(m => m.delete(5000));
-                        message.guild.members.forEach(m => {
-                              m.send(args);
-                              msg.delete();
-                        })
-                  })
-            })
-      }
-});
+
 client.login(process.env.BOT_TOKEN);
