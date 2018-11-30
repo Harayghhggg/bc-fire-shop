@@ -87,6 +87,7 @@ client.on("message", message => {
                         .setDescription(`**
 f!bc | لارسال برودكاست
 f!obc | لارسال برودكاست بمنشن 
+f!2bc |لارسال برودكاست بعداد
 ** `)
                   
                   message.channel.sendEmbed(embed)
@@ -113,7 +114,7 @@ f!obc | لارسال برودكاست بمنشن
 client.on('message',async message => {
   if(message.author.bot || message.channel.type === 'f!') return;
   let args = message.content.split(' ');
-  if(args[0] === `2bc`) {
+  if(args[0] === `f!2bc`) {
       if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('- **       **');
       if(!args[1]) return message.channel.send('- **     **');
    
