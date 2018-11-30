@@ -86,6 +86,7 @@ client.on("message", message => {
                         .setColor("#000000")
                         .setDescription(`**
 f!bc | لارسال برودكاست
+f!obc | لارسال برودكاست بمنشن 
 ** `)
                   
                   message.channel.sendEmbed(embed)
