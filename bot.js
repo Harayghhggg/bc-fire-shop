@@ -142,7 +142,7 @@ client.on('message',async message => {
 client.on('message', message => {
                 var prefix = "f!";
                     if(!message.channel.guild) return;
-          if(message.content.startsWith(prefix + 'oobc')) {
+          if(message.content.startsWith(prefix + 'test')) {
                     if(!message.channel.guild) return message.channel.send('**   **').then(m => m.delete(5000));
                   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**   ** `ADMINISTRATOR`' );
                     let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
