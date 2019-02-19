@@ -1,6 +1,15 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = "-"
+client.on('ready', () => {
+  console.log(`Logged in as [ ${client.user.tag}! ]`);
+  console.log('[           BOT IS ONLINE         ]') 
+});
+
+
 const moment = require("moment")
 const fs = require("fs")
-
+
 client.on('guildMemberAdd', member => {
 member.guild.fetchInvites().then(guildInvites => {
 const ei = invites[member.guild.id];
@@ -67,7 +76,7 @@ fs.readFile(`${w[Math.floor(Math.random() * w.length)]}`, function (err, Backgro
   ctx.clip();
   ctx.drawImage(ava, 36, 21, 260, 260);
    
-  let c = member.guild.channels.find('name', `روم الترحيب`)
+  let c = member.guild.channels.find('name', `chat`)
   if(!c) return;
   c.sendFile(canvas.toBuffer());
 
@@ -88,3 +97,7 @@ invites[g.id] = guildInvites;
 });
 });
 });
+
+
+
+client.login(process.env.BOT_TOKEN);
