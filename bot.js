@@ -1,6 +1,6 @@
 const moment = require("moment")
 const fs = require("fs")
-
+
 client.on('guildMemberAdd', member => {
 member.guild.fetchInvites().then(guildInvites => {
 const ei = invites[member.guild.id];
